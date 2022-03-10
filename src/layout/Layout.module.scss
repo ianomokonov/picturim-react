@@ -1,0 +1,21 @@
+.main {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr 5rem;
+    column-gap: 3rem;
+    grid-template-areas:
+        'header'
+        'body'
+        'footer';
+    &__header {
+        grid-area: header;
+    }
+    &__body {
+        grid-area: body;
+        overflow: auto;
+    }
+    &__footer {
+        grid-area: footer;
+    }
+}
