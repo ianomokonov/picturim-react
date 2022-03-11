@@ -19,7 +19,6 @@ function App() {
                 <Route path="profile" element={<Profile />} />
                 <Route path="comments" element={<Comments />} />
                 <Route path="post/:id" element={<PostPage />} />
-                <Route path="post/create" element={<CreatePost />} />
             </Route>
         </Routes>
     );

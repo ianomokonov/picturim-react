@@ -1,18 +1,31 @@
-import { ReactElement, useContext, useEffect, useRef } from 'react';
-import { HeaderContext } from '../../contexts/HeaderContext';
+import { ReactElement } from 'react';
+import { FileUpload } from '../../layout/Footer/Footer';
+import styles from './CreatePost.module.scss';
 
-export const CreatePost = (): ReactElement => {
-    const { setHeader } = useContext(HeaderContext);
-    const inputEl = useRef<HTMLInputElement>(null);
-    useEffect(() => {
-        setHeader('Создание публикации');
-        inputEl.current?.click();
-    }, []);
+export interface CreatePostProps {
+    upload: FileUpload;
+    onClose: () => void;
+}
 
+export const CreatePost = ({ upload, onClose }: CreatePostProps): ReactElement => {
     return (
-        <div>
-            Создание
-            <input type="file" hidden ref={inputEl} />
+        <div className={styles.modal}>
+            <div className={styles.create}>
+                <div className={styles.create__header}>
+                    <div className={styles.create__title}>Создание публикации</div>
+                    <div className={styles.create__actions} onClick={() => onClose()}>
+                        <i className="fas fa-times"></i>
+                    </div>
+                </div>
+                <img className={styles.create__img} src={upload.path} alt="" />
+                <div className={styles.create__description}>
+                    <small>Описание</small>
+                    <textarea></textarea>
+                </div>
+                <div className="p-3">
+                    <button className={styles.create__btn}>Создать</button>
+                </div>
+            </div>
         </div>
     );
 };
