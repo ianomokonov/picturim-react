@@ -42,7 +42,7 @@ module.exports = {
                 endOfLine: 'auto',
             },
         ],
-        'no-unused-vars': 'error',
+        'no-unused-vars': 'off',
     },
     overrides: [
         {

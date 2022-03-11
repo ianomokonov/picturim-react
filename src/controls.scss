@@ -1,0 +1,24 @@
+.control {
+    &_prepend {
+        position: relative;
+        display: flex;
+        align-items: center;
+        .prepended {
+            position: absolute;
+            left: 0.6rem;
+            color: gray;
+        }
+
+        .input {
+            padding-left: 3rem;
+
+            &:focus {
+                border: none;
+                outline: none;
+                & ~ .prepended {
+                    color: black;
+                }
+            }
+        }
+    }
+}
