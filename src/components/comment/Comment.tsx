@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import { ReactElement, useCallback, useState } from 'react';
 import styles from './Comment.module.scss';
 import cn from 'classnames';
