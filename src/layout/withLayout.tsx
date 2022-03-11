@@ -17,13 +17,13 @@ import { Outlet } from 'react-router';
 export const Layout = () => {
     return (
         <div className={cn(styles.main, 'container')}>
-            <div className="main__header">
+            <div className={styles.main__header}>
                 <Header className={styles.header} />
             </div>
-            <div className="main__body">
+            <div className={styles.main__body}>
                 <Outlet />
             </div>
-            <div className="main__footer">
+            <div className={styles.main__footer}>
                 <Footer className={styles.footer} />
             </div>
         </div>
