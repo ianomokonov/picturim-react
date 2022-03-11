@@ -2,25 +2,26 @@ import { ReactElement } from 'react';
 import styles from './Footer.module.scss';
 import { FooterProps } from './Footer.props';
 import cn from 'classnames';
+import { NavLink } from 'react-router-dom';
 
 export const Footer = ({ className }: FooterProps): ReactElement => {
     return (
         <footer className={cn(styles['main-menu'], className)}>
-            <a href="./index.html" className={styles['main-menu__item']}>
+            <NavLink to="/" className={styles['main-menu__item']}>
                 <i className="fas fa-home"></i>
-            </a>
-            <a href="./search.html" className={styles['main-menu__item']}>
+            </NavLink>
+            <NavLink to="/search" className={styles['main-menu__item']}>
                 <i className="fas fa-search"></i>
-            </a>
+            </NavLink>
             <div className={styles['main-menu__item']}>
                 <i className="fas fa-plus"></i>
             </div>
-            <a href="./actions.html" className={styles['main-menu__item']}>
+            <NavLink to="/actions" className={styles['main-menu__item']}>
                 <i className="far fa-heart"></i>
-            </a>
-            <a href="./profile.html" className={styles['main-menu__item']}>
+            </NavLink>
+            <NavLink to="/profile" className={styles['main-menu__item']}>
                 <i className="far fa-user"></i>
-            </a>
+            </NavLink>
         </footer>
     );
 };

@@ -1,25 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import styles from './App.module.scss';
+import { Route, Routes } from 'react-router';
+import { Layout } from './layout/withLayout';
+import { Actions } from './pages/actions/Actions';
+import { Main } from './pages/main/Main';
 
 function App() {
     return (
-        <div className={styles['App']}>
-            <header className={styles['App-header']}>
-                <img src={logo} className={styles['App-logo']} alt="logo" />
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <a
-                    className={styles['App-link']}
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-            </header>
-        </div>
+        <Routes>
+            <Route path="/" element={<Layout />}>
+                <Route index element={<Main />} />
+                <Route path="search" element={<p>Search</p>} />
+                <Route path="actions" element={<Actions />} />
+                <Route path="profile" element={<p>Profile</p>} />
+                <Route path="post/:id" element={<p>Post</p>} />
+            </Route>
+        </Routes>
     );
 }
 

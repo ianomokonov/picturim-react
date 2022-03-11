@@ -1,10 +1,11 @@
 import { ReactElement, useContext, useEffect } from 'react';
 import { HeaderContext } from '../../contexts/HeaderContext';
 
-export const Main = (): ReactElement => {
+export const Actions = (): ReactElement => {
     const { setHeader } = useContext(HeaderContext);
     useEffect(() => {
-        setHeader();
+        setHeader('Действия');
     });
-    return <div>Главная</div>;
+
+    return <div>Действия</div>;
 };
