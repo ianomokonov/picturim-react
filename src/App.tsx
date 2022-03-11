@@ -3,6 +3,7 @@ import { Post } from './components/post/Post';
 import { Layout } from './layout/withLayout';
 import { Actions } from './pages/actions/Actions';
 import { Comments } from './pages/comments/Comments';
+import { CreatePost } from './pages/create-post/CreatePost';
 import { Main } from './pages/main/Main';
 import { PostPage } from './pages/post/Post';
 import { Profile } from './pages/profile/Profile';
@@ -18,6 +19,7 @@ function App() {
                 <Route path="profile" element={<Profile />} />
                 <Route path="comments" element={<Comments />} />
                 <Route path="post/:id" element={<PostPage />} />
+                <Route path="post/create" element={<CreatePost />} />
             </Route>
         </Routes>
     );

@@ -13,9 +13,9 @@ export const Footer = ({ className }: FooterProps): ReactElement => {
             <NavLink to="/search" className={styles['main-menu__item']}>
                 <i className="fas fa-search"></i>
             </NavLink>
-            <div className={styles['main-menu__item']}>
+            <NavLink to="/post/create" className={styles['main-menu__item']}>
                 <i className="fas fa-plus"></i>
-            </div>
+            </NavLink>
             <NavLink to="/actions" className={styles['main-menu__item']}>
                 <i className="far fa-heart"></i>
             </NavLink>
