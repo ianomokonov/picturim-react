@@ -20,8 +20,10 @@ module.exports = {
     },
     plugins: ['react', 'jsx-a11y', '@typescript-eslint'],
     rules: {
-        'react-hooks/exhaustive-deps': 'error',
+        'react-hooks/exhaustive-deps': 'off',
         'react/react-in-jsx-scope': 'off',
+        'jsx-a11y/click-events-have-key-events': 'off',
+        'jsx-a11y/no-static-element-interactions': 'off',
         'no-var': 'error',
         'brace-style': 'error',
         'prefer-template': 'error',

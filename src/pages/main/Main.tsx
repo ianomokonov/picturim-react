@@ -7,7 +7,7 @@ export const Main = (): ReactElement => {
     const { setHeader } = useContext(HeaderContext);
     useEffect(() => {
         setHeader();
-    });
+    }, []);
     return (
         <div className={styles['photo-list']}>
             <Post className={styles['photo-list__item']} />

@@ -13,7 +13,7 @@ export const Profile = (): ReactElement => {
                 <i className="fas fa-bars"></i>
             </div>,
         );
-    });
+    }, []);
 
     return (
         <div className={styles.profile}>

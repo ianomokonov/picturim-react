@@ -6,7 +6,7 @@ export const Actions = (): ReactElement => {
     const { setHeader } = useContext(HeaderContext);
     useEffect(() => {
         setHeader('Действия');
-    });
+    }, []);
 
     return (
         <div className={styles.actions}>

@@ -8,7 +8,7 @@ export const Search = (): ReactElement => {
     const { setHeader } = useContext(HeaderContext);
     useEffect(() => {
         setHeader();
-    });
+    }, []);
 
     const [searchValue, setSearchValue] = useState('');
 
