@@ -11,13 +11,16 @@
 
         .input {
             padding-left: 3rem;
+        }
+    }
 
-            &:focus {
-                border: none;
-                outline: none;
-                & ~ .prepended {
-                    color: black;
-                }
+    .input {
+        padding-left: 1rem;
+        &:focus {
+            border: none;
+            outline: none;
+            & ~ .prepended {
+                color: black;
             }
         }
     }

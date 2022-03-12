@@ -1,0 +1,34 @@
+.login {
+    padding: 1rem;
+    display: flex;
+    justify-items: flex-end;
+    height: 100%;
+    flex-direction: column;
+
+    &__field {
+        margin-bottom: 1rem;
+    }
+
+    &__btn {
+        background-color: rgb(40, 86, 212);
+        color: white;
+        width: 100%;
+        padding: 1rem;
+        border-radius: 0.6rem;
+        border: none;
+        outline: none;
+        margin-bottom: 1rem;
+
+        &_secondary {
+            color: rgb(40, 86, 212);
+            background-color: transparent;
+        }
+    }
+
+    &__actions {
+        flex-grow: 1;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+    }
+}

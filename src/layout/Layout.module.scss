@@ -18,4 +18,11 @@
     &__footer {
         grid-area: footer;
     }
+
+    &_no-footer {
+        grid-template-areas:
+            'header'
+            'body';
+        grid-template-rows: auto 1fr;
+    }
 }
