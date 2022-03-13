@@ -5,4 +5,5 @@ export interface InputProps {
     placeholder?: string;
     setValue: (value: string) => void;
     icon?: ReactElement;
+    action?: ReactElement;
 }

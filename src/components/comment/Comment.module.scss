@@ -4,9 +4,6 @@
     grid-template-areas: 'ava content actions';
     justify-content: space-between;
     column-gap: 1rem;
-    &:not(:last-child) {
-        margin-bottom: 2rem;
-    }
     &_first {
         grid-template-columns: 1fr;
         grid-template-areas: 'content';

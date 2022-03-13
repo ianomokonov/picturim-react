@@ -1,0 +1,18 @@
+.comments {
+    &__item {
+        margin-bottom: 2rem;
+    }
+
+    &__body {
+        padding-bottom: 2rem;
+    }
+
+    &__input {
+        position: fixed;
+        bottom: 5rem;
+        left: 0;
+        width: 100%;
+        padding: 1rem;
+        background-color: white;
+    }
+}

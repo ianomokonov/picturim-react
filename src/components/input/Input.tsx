@@ -3,9 +3,9 @@ import styles from './Input.module.scss';
 import { InputProps } from './Input.props';
 import cn from 'classnames';
 
-export const Input = ({ value, placeholder, setValue, icon }: InputProps): ReactElement => {
+export const Input = ({ value, placeholder, setValue, icon, action }: InputProps): ReactElement => {
     return (
-        <div className={cn('control', { control_prepend: icon })}>
+        <div className={cn('control', { control_prepend: icon, control_append: action })}>
             <input
                 value={value}
                 className={cn(styles.input, 'input')}
@@ -16,6 +16,7 @@ export const Input = ({ value, placeholder, setValue, icon }: InputProps): React
                 }
             />
             {icon && <span className="prepend">{icon}</span>}
+            {action && <span className="appended">{action}</span>}
         </div>
     );
 };
