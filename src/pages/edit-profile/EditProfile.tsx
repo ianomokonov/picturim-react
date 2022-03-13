@@ -1,10 +1,15 @@
-import { ReactElement, useState } from 'react';
+import { ReactElement, useContext, useEffect, useState } from 'react';
 import { Input } from '../../components/input/Input';
+import { HeaderContext } from '../../contexts/HeaderContext';
 import { FileUpload } from '../../layout/Footer/Footer';
 import styles from './EditProfile.module.scss';
 
 export const EditProfile = (): ReactElement => {
     const [formData, setFormData] = useState<any>({ name: 'Ваня' });
+    const { setHeader } = useContext(HeaderContext);
+    useEffect(() => {
+        setHeader('Редактирование профиля');
+    }, []);
     const setData = (field: string, value: string) => {
         setFormData({ ...formData, [field]: value });
     };

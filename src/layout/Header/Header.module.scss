@@ -12,5 +12,9 @@
     &__actions {
         text-align: right;
         font-size: 2rem;
+
+        * {
+            color: black;
+        }
     }
 }

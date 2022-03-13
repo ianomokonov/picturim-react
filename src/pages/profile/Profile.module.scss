@@ -28,22 +28,35 @@
     }
 
     &__name {
-        padding: 0 1rem;
         font-weight: 500;
         margin-bottom: 1rem;
     }
 
     &__description {
-        padding: 0 1rem;
         font-size: 1.4rem;
     }
     &__link {
-        padding: 0 1rem;
         margin-bottom: 1rem;
         display: block;
         font-size: 1.4rem;
         color: blue;
         text-decoration: none;
+    }
+
+    &__btn {
+        background-color: rgb(40, 86, 212);
+        color: white;
+        width: 100%;
+        padding: 1rem;
+        border-radius: 0.6rem;
+        border: 0.1rem solid transparent;
+        outline: none;
+
+        &_secondary {
+            background-color: transparent;
+            border-color: rgb(40, 86, 212);
+            color: rgb(40, 86, 212);
+        }
     }
 }
 
