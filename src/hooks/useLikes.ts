@@ -4,10 +4,14 @@ export const useLikes = (initLikes: number, initIsLiked: boolean) => {
     const [isLiked, setIsLiked] = useState(initIsLiked);
     const [likes, setLikes] = useState(initLikes);
 
-    const toggleLike = () => {
-        setIsLiked(!isLiked);
+    const toggleLike = (liked?: boolean) => {
+        if (liked === isLiked) {
+            return;
+        }
+        const curIsLike = liked === undefined ? !isLiked : liked;
+        setIsLiked(curIsLike);
 
-        if (!isLiked) {
+        if (curIsLike) {
             setLikes(likes + 1);
             return;
         }

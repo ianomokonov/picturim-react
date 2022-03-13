@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import { ReactElement } from 'react';
 import styles from './Post.module.scss';
 import cn from 'classnames';
@@ -19,7 +20,12 @@ export const Post = ({ className, ...props }: PostProps): ReactElement => {
                     <i className="fas fa-ellipsis-v"></i>
                 </div>
             </div>
-            <img className={styles.photo__content} src="/assets/photo.jpg" alt="" />
+            <img
+                className={styles.photo__content}
+                src="/assets/photo.jpg"
+                alt=""
+                onDoubleClick={() => toggleLike(true)}
+            />
             <div className={styles.photo__body}>
                 <div className={styles.photo__actions}>
                     <i
