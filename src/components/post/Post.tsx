@@ -17,7 +17,7 @@ export const Post = ({ className, ...props }: PostProps): ReactElement => {
                 </div>
 
                 <div className={styles.photo__menu}>
-                    <i className="fas fa-ellipsis-v"></i>
+                    {/* <i className="fas fa-ellipsis-v"></i> */}
                 </div>
             </div>
             <img
@@ -32,7 +32,7 @@ export const Post = ({ className, ...props }: PostProps): ReactElement => {
                         className={cn({ far: !isLiked, fas: isLiked }, 'fa-heart')}
                         onClick={() => toggleLike()}
                     ></i>
-                    <i className="fas fa-share"></i>
+                    {/* <i className="fas fa-share"></i> */}
                 </div>
                 <div className={styles.photo__likes}>Нравится: {likes}</div>
                 <div className={styles.photo__comments}>

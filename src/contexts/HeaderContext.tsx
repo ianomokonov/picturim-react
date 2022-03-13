@@ -11,11 +11,7 @@ export interface IHeaderContext {
 
 const defaultState = {
     title: 'Picturim',
-    actions: (
-        <div>
-            <i className="fas fa-comment-dots"></i>
-        </div>
-    ),
+    actions: <div>{/* <i className="fas fa-comment-dots"></i> */}</div>,
     hasFooter: true,
     setHeader: () => {},
     setFooter: () => {},

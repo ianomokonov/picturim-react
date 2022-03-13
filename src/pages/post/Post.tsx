@@ -6,12 +6,7 @@ import styles from './Post.module.scss';
 export const PostPage = (): ReactElement => {
     const { setHeader } = useContext(HeaderContext);
     useEffect(() => {
-        setHeader(
-            'Публикация',
-            <div>
-                <i className="fas fa-share"></i>
-            </div>,
-        );
+        setHeader('Публикация', <div>{/* <i className="fas fa-share"></i> */}</div>);
     }, []);
 
     return <Post />;

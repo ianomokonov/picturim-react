@@ -8,10 +8,12 @@ export const Comment = ({
     isFirst,
     className,
     hasMoreComments,
+    onAnswer,
 }: {
     isFirst?: boolean;
     className?: string;
     hasMoreComments?: boolean;
+    onAnswer?: (login: string) => void;
 }): ReactElement => {
     const initText = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti minima illo
     soluta atque magnam veniam quibusdam adipisci ipsa a, sed, quo optio veritatis
@@ -78,7 +80,12 @@ export const Comment = ({
                 <div className={styles.comment__stats}>
                     <small className={styles['comment__create-duration']}>1д. назад</small>
                     <small className={styles.comment__likes}>Нравится: {likes}</small>
-                    <small className={styles.comment__replay}>Ответить</small>
+                    <small
+                        className={styles.comment__replay}
+                        onClick={() => onAnswer && onAnswer('vanika_koma')}
+                    >
+                        Ответить
+                    </small>
                 </div>
             </div>
             <div className={cn(styles.comment__actions)}>
