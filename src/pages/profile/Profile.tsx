@@ -3,6 +3,7 @@ import { HeaderContext } from '../../contexts/HeaderContext';
 import styles from './Profile.module.scss';
 import cn from 'classnames';
 import { Gallery } from '../../components/gallery/Gallery';
+import { Link } from 'react-router-dom';
 
 export const Profile = (): ReactElement => {
     const { setHeader } = useContext(HeaderContext);
@@ -10,7 +11,9 @@ export const Profile = (): ReactElement => {
         setHeader(
             'vanika_koma',
             <div>
-                <i className="fas fa-bars"></i>
+                <Link to="/profile/vanika_koma/edit">
+                    <i className="fas fa-edit"></i>
+                </Link>
             </div>,
         );
     }, []);

@@ -2,6 +2,19 @@
     position: relative;
     display: flex;
     align-items: center;
+    .input {
+        padding-left: 1rem;
+        &:focus {
+            border: none;
+            outline: none;
+            & ~ .prepended {
+                color: black;
+            }
+            & ~ .appended {
+                color: black;
+            }
+        }
+    }
     &_prepend {
         .prepended {
             position: absolute;
@@ -20,20 +33,6 @@
         }
         .input {
             padding-right: 3rem;
-        }
-    }
-
-    .input {
-        padding-left: 1rem;
-        &:focus {
-            border: none;
-            outline: none;
-            & ~ .prepended {
-                color: black;
-            }
-            & ~ .appended {
-                color: black;
-            }
         }
     }
 }

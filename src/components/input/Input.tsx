@@ -15,7 +15,7 @@ export const Input = ({ value, placeholder, setValue, icon, action }: InputProps
                     setValue(currentTarget.value)
                 }
             />
-            {icon && <span className="prepend">{icon}</span>}
+            {icon && <span className="prepended">{icon}</span>}
             {action && <span className="appended">{action}</span>}
         </div>
     );
