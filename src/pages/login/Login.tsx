@@ -1,13 +1,17 @@
-import { ReactElement, useContext, useEffect, useState } from 'react';
+import { ReactElement, useContext, useEffect, useMemo, useState } from 'react';
 import { Input } from '../../components/input/Input';
 import { HeaderContext } from '../../contexts/HeaderContext';
 import styles from './Login.module.scss';
 import cn from 'classnames';
+import { AuthorService } from '../../services/author.service';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
 
 export const Login = (): ReactElement => {
     const { setHeader, setFooter } = useContext(HeaderContext);
     const [formData, setFormData] = useState<any>({});
     const [isLogin, setIsLogin] = useState(true);
+    const { login, signin } = useContext(AuthContext);
 
     useEffect(() => {
         if (isLogin) {
@@ -19,6 +23,16 @@ export const Login = (): ReactElement => {
 
     const setData = (field: string, value: string) => {
         setFormData({ ...formData, [field]: value });
+    };
+
+    const onSubmit = async () => {
+        if (isLogin) {
+            const { login: loginValue, password } = formData;
+            login && login({ login: loginValue, password });
+            return;
+        }
+
+        signin && signin(formData);
     };
 
     return (
@@ -51,7 +65,7 @@ export const Login = (): ReactElement => {
                     className={cn(styles.login__btn, {
                         [styles.login__btn_secondary]: isLogin,
                     })}
-                    onClick={() => (isLogin ? setIsLogin(false) : setIsLogin(false))}
+                    onClick={() => (isLogin ? setIsLogin(false) : onSubmit())}
                 >
                     Зарегистрироваться
                 </button>
@@ -59,7 +73,7 @@ export const Login = (): ReactElement => {
                     className={cn(styles.login__btn, {
                         [styles.login__btn_secondary]: !isLogin,
                     })}
-                    onClick={() => (!isLogin ? setIsLogin(true) : setIsLogin(true))}
+                    onClick={() => (isLogin ? onSubmit() : setIsLogin(true))}
                 >
                     Войти
                 </button>

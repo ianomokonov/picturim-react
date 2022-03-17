@@ -9,9 +9,7 @@ import { HeaderContextProvider } from './contexts/HeaderContext';
 ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
-            <HeaderContextProvider>
-                <App />
-            </HeaderContextProvider>
+            <App />
         </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root'),

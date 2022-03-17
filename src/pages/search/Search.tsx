@@ -19,7 +19,7 @@ export const Search = (): ReactElement => {
                     <Input value={searchValue} setValue={setSearchValue} />
                 </div>
             </div>
-            <Gallery />
+            <Gallery posts={[]} />
         </>
     );
 };
