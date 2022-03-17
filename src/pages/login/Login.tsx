@@ -8,19 +8,9 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 
 export const Login = (): ReactElement => {
-    const { setHeader, setFooter } = useContext(HeaderContext);
     const [formData, setFormData] = useState<any>({});
     const [isLogin, setIsLogin] = useState(true);
     const { login, signin } = useContext(AuthContext);
-
-    useEffect(() => {
-        if (isLogin) {
-            setHeader('Вход', undefined, false);
-            return;
-        }
-        setHeader('Регистрация', undefined, false);
-    }, [isLogin]);
-
     const setData = (field: string, value: string) => {
         setFormData({ ...formData, [field]: value });
     };
@@ -41,7 +31,7 @@ export const Login = (): ReactElement => {
                 <div className={styles.login__field}>
                     <Input
                         placeholder="Email"
-                        value={formData.email}
+                        value={formData.email || ''}
                         setValue={(v) => setData('email', v)}
                     />
                 </div>
@@ -49,14 +39,14 @@ export const Login = (): ReactElement => {
             <div className={styles.login__field}>
                 <Input
                     placeholder="Login"
-                    value={formData.login}
+                    value={formData.login || ''}
                     setValue={(v) => setData('login', v)}
                 />
             </div>
             <div className={styles.login__field}>
                 <Input
                     placeholder="Password"
-                    value={formData.password}
+                    value={formData.password || ''}
                     setValue={(v) => setData('password', v)}
                 />
             </div>

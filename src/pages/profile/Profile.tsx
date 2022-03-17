@@ -1,34 +1,65 @@
-import { ReactElement, useContext, useEffect, useState } from 'react';
+import { ReactElement, useContext, useEffect, useMemo, useState } from 'react';
 import { HeaderContext } from '../../contexts/HeaderContext';
 import styles from './Profile.module.scss';
 import cn from 'classnames';
 import { Gallery } from '../../components/gallery/Gallery';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
+import { AuthorService } from '../../services/author.service';
+import { AuthorDto } from '../../services/dto/author.dto';
 
 export const Profile = (): ReactElement => {
+    const authService = useMemo(() => new AuthorService(), []);
+    const { login } = useParams();
     const { setHeader } = useContext(HeaderContext);
-    const { author } = useContext(AuthContext);
-    const [isSubscribed, setIsSubscribed] = useState(author?.isSubscribed);
-    const [subscribers, setSubscribers] = useState(199);
+    const { author: me, logout } = useContext(AuthContext);
+    const [author, setAuthor] = useState<AuthorDto | null | undefined>(null);
+
     useEffect(() => {
+        if (login) {
+            authService.getAuthorInfo(login).then((auth) => {
+                setAuthor(auth);
+                setHeader(
+                    auth.login,
+                    <div>
+                        <Link to={`/profile/${auth.login}/edit`}>
+                            <i className="fas fa-edit"></i>
+                        </Link>
+                    </div>,
+                );
+            });
+            return;
+        }
+
         setHeader(
-            'vanika_koma',
+            me?.login,
             <div>
-                <Link to="/profile/vanika_koma/edit">
+                <Link to={`/profile/${author?.login}/edit`}>
                     <i className="fas fa-edit"></i>
                 </Link>
             </div>,
         );
-    }, []);
+    }, [login]);
 
     const toggleSubscribe = () => {
-        setIsSubscribed(!isSubscribed);
-        if (!isSubscribed) {
-            setSubscribers(subscribers + 1);
+        if (!author) {
             return;
         }
-        setSubscribers(subscribers - 1);
+        if (!author.isSubscribed) {
+            setAuthor({
+                ...author,
+                isSubscribed: !author.isSubscribed,
+                subscribersCount: author.subscribersCount + 1,
+            });
+            authService.subscribe({ authorLogin: author.login });
+            return;
+        }
+        setAuthor({
+            ...author,
+            subscribersCount: author.subscribersCount - 1,
+            isSubscribed: !author.isSubscribed,
+        });
+        authService.unsubscribe({ authorLogin: author.login });
     };
 
     return (
@@ -66,11 +97,19 @@ export const Profile = (): ReactElement => {
                         {!author.isMe && (
                             <button
                                 className={cn(styles.profile__btn, {
-                                    [styles.profile__btn_secondary]: isSubscribed,
+                                    [styles.profile__btn_secondary]: author.isSubscribed,
                                 })}
                                 onClick={() => toggleSubscribe()}
                             >
-                                {isSubscribed ? 'Отписаться' : 'Подписаться'}
+                                {author.isSubscribed ? 'Отписаться' : 'Подписаться'}
+                            </button>
+                        )}
+                        {author.isMe && (
+                            <button
+                                className={cn(styles.profile__btn, styles.profile__btn_secondary)}
+                                onClick={() => logout && logout()}
+                            >
+                                Выйти
                             </button>
                         )}
                     </div>

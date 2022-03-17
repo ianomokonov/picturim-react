@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { BASE_URL } from '../utils/constants';
 import { getHeaders, getTokens, saveTokens } from '../utils/jwt';
-import { AuthorDto } from './dto/author.dto';
+import { AuthorDto, AuthorShortDto } from './dto/author.dto';
 import { JwtDto } from './dto/jwt.dto';
 import { LoginDto } from './dto/login.dto';
 import { SignInDto } from './dto/sign-in.dto';
@@ -25,10 +25,10 @@ export class AuthorService {
 
     public async subscribe(data: SubscribeDto): Promise<void> {
         return axios
-            .post<JwtDto>(`${this.SERVICE_BASE_URL}/subscribe`, data, { headers: getHeaders() })
-            .then(({ data }) => {
-                saveTokens(data);
-            });
+            .post<void>(`${this.SERVICE_BASE_URL}/subscribe`, data, {
+                headers: getHeaders(),
+            })
+            .then(({ data }) => data);
     }
 
     public async unsubscribe(data: SubscribeDto): Promise<void> {
@@ -39,9 +39,18 @@ export class AuthorService {
             .then(({ data }) => data);
     }
 
-    public async getAuthorInfo(): Promise<AuthorDto> {
+    public async getAuthorInfo(login?: string): Promise<AuthorDto> {
         return axios
-            .get<AuthorDto>(`${this.SERVICE_BASE_URL}`, {
+            .get<AuthorDto>(`${this.SERVICE_BASE_URL}${login ? `/${login}` : ''}`, {
+                headers: getHeaders(),
+            })
+            .then(({ data }) => data);
+    }
+
+    public async searchAuthors(login: string): Promise<AuthorShortDto[]> {
+        return axios
+            .get<AuthorShortDto[]>(`${this.SERVICE_BASE_URL}/search`, {
+                params: { login },
                 headers: getHeaders(),
             })
             .then(({ data }) => data);

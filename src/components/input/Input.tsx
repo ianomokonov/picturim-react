@@ -6,11 +6,16 @@ import cn from 'classnames';
 
 export const Input = forwardRef(
     (
-        { value, placeholder, setValue, icon, action }: InputProps,
+        { value, placeholder, className, setValue, icon, action, onFocus }: InputProps,
         ref: ForwardedRef<HTMLInputElement>,
     ): ReactElement => {
         return (
-            <div className={cn('control', { control_prepend: icon, control_append: action })}>
+            <div
+                className={cn('control', className, {
+                    control_prepend: icon,
+                    control_append: action,
+                })}
+            >
                 <input
                     ref={ref}
                     value={value}
@@ -20,6 +25,7 @@ export const Input = forwardRef(
                     onInput={({ currentTarget }: FormEvent<HTMLInputElement>) =>
                         setValue(currentTarget.value)
                     }
+                    onFocus={(event) => onFocus && onFocus(event)}
                 />
                 {icon && <span className="prepended">{icon}</span>}
                 {action && <span className="appended">{action}</span>}

@@ -1,9 +1,10 @@
-import { ReactElement, useEffect, useRef, useState } from 'react';
+import { ReactElement, useContext, useEffect, useRef, useState } from 'react';
 import styles from './Footer.module.scss';
 import { FooterProps } from './Footer.props';
 import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
 import { CreatePost } from '../../pages/create-post/CreatePost';
+import { AuthContext } from '../../contexts/AuthContext';
 
 export interface FileUpload {
     path: string;
@@ -14,6 +15,7 @@ export const Footer = ({ className }: FooterProps): ReactElement => {
     const inputEl = useRef<HTMLDivElement>(null);
     const [upload, setUpload] = useState<FileUpload | null>(null);
     const [showModal, setShowModal] = useState(false);
+    const { author } = useContext(AuthContext);
 
     useEffect(() => {
         setShowModal(true);
@@ -73,7 +75,7 @@ export const Footer = ({ className }: FooterProps): ReactElement => {
                 <NavLink to="/actions" className={styles['main-menu__item']}>
                     <i className="far fa-heart"></i>
                 </NavLink>
-                <NavLink to="/profile" className={styles['main-menu__item']}>
+                <NavLink to={`/profile/${author?.login}`} className={styles['main-menu__item']}>
                     <i className="far fa-user"></i>
                 </NavLink>
                 <div ref={inputEl}></div>

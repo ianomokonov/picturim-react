@@ -9,5 +9,5 @@ export const PostPage = (): ReactElement => {
         setHeader('Публикация', <div>{/* <i className="fas fa-share"></i> */}</div>);
     }, []);
 
-    return <Post />;
+    return <></>;
 };
