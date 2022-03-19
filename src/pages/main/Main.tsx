@@ -20,10 +20,19 @@ export const Main = (): ReactElement => {
             setPosts(p);
         });
     }, [postService]);
+
+    const toogleLike = async (postId: string) => {
+        await postService.like(postId);
+    };
     return (
         <div className={styles['photo-list']}>
             {posts.map((p) => (
-                <Post key={p._id} post={p} className={styles['photo-list__item']} />
+                <Post
+                    onToogleLike={toogleLike}
+                    key={p._id}
+                    post={p}
+                    className={styles['photo-list__item']}
+                />
             ))}
         </div>
     );

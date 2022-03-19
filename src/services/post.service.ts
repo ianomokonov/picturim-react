@@ -13,4 +13,24 @@ export class PostService {
             })
             .then(({ data }) => data);
     }
+
+    public getPost(postId: string): Promise<PostDto> {
+        return axios
+            .get<PostDto>(`${this.SERVICE_BASE_URL}/${postId}`, {
+                headers: getHeaders(),
+            })
+            .then(({ data }) => data);
+    }
+
+    public like(postId: string): Promise<void> {
+        return axios
+            .post<void>(
+                `${this.SERVICE_BASE_URL}/${postId}/like`,
+                {},
+                {
+                    headers: getHeaders(),
+                },
+            )
+            .then(() => undefined);
+    }
 }
