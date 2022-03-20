@@ -34,6 +34,7 @@ export const EditProfile = (): ReactElement => {
             <div className={styles.edit__link}>
                 <Input
                     value={formData.link}
+                    placeholder="Ссылка"
                     setValue={(v) => setData('link', v)}
                     icon={<i className="fas fa-link"></i>}
                 />

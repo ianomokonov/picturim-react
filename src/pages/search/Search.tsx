@@ -64,13 +64,9 @@ export const Search = (): ReactElement => {
             {isSearchingAuthors && (
                 <div className={styles.authors}>
                     {authors.map((a) => (
-                        <Link
-                            className={styles.authors__item}
-                            key={a._id}
-                            to={`/profile/${a.login}`}
-                        >
+                        <div className={styles.authors__item} key={a._id}>
                             <AuthorMiniCard author={a} />
-                        </Link>
+                        </div>
                     ))}
                 </div>
             )}
