@@ -15,8 +15,6 @@ export const Main = (): ReactElement => {
     }, []);
     useEffect(() => {
         postService.getPosts().then((p) => {
-            console.log(p);
-
             setPosts(p);
         });
     }, [postService]);

@@ -1,13 +1,11 @@
-import { AuthorShortDto } from "./author.dto";
+import { AuthorShortDto } from './author.dto';
+import { PostShortDto } from './post-short.dto';
 
-
-export interface PostDto {
-  _id: string;
-  img: string;
-  description: string;
-  createdAt: Date;
-  isLiked: boolean;
-  likesCount: number;
-  author: AuthorShortDto;
-  commentsCount: number;
+export interface PostDto extends PostShortDto {
+    description: string;
+    createdAt: Date;
+    isLiked: boolean;
+    likesCount: number;
+    author: AuthorShortDto;
+    commentsCount: number;
 }

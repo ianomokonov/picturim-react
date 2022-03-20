@@ -6,18 +6,27 @@ import { Input } from '../../components/input/Input';
 import { HeaderContext } from '../../_contexts/HeaderContext';
 import { AuthorService } from '../../_services/author.service';
 import { AuthorShortDto } from '../../_services/dto/author.dto';
+import { PostShortDto } from '../../_services/dto/post-short.dto';
+import { PostService } from '../../_services/post.service';
 import styles from './Search.module.scss';
 
 export const Search = (): ReactElement => {
     const authService = useMemo(() => new AuthorService(), []);
+    const postService = useMemo(() => new PostService(), []);
+
+    const [searchValue, setSearchValue] = useState('');
+    const [isSearchingAuthors, setIsSearchingAuthors] = useState(false);
+    const [authors, setAuthors] = useState<AuthorShortDto[]>([]);
+    const [posts, setPosts] = useState<PostShortDto[]>([]);
+
     const { setHeader } = useContext(HeaderContext);
     useEffect(() => {
         setHeader();
     }, []);
 
-    const [searchValue, setSearchValue] = useState('');
-    const [isSearchingAuthors, setIsSearchingAuthors] = useState(false);
-    const [authors, setAuthors] = useState<AuthorShortDto[]>([]);
+    useEffect(() => {
+        postService.getList().then((p) => setPosts(p));
+    }, [postService]);
 
     useEffect(() => {
         const time = setTimeout(() => {
@@ -51,7 +60,7 @@ export const Search = (): ReactElement => {
                     )}
                 </div>
             </div>
-            {!isSearchingAuthors && <Gallery posts={[]} />}
+            {!isSearchingAuthors && <Gallery posts={posts} />}
             {isSearchingAuthors && (
                 <div className={styles.authors}>
                     {authors.map((a) => (
