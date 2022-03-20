@@ -1,3 +1,3 @@
 export interface UpdatePostDto {
-  description: string;
+    description: string;
 }

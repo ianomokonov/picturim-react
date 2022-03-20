@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { BASE_URL } from '../utils/constants';
 import { getHeaders } from '../utils/jwt';
+import { CreatePostDto } from './dto/create-post.dto';
 import { PostShortDto } from './dto/post-short.dto';
 import { PostDto } from './dto/post.dto';
 
@@ -41,5 +42,13 @@ export class PostService {
                 },
             )
             .then(() => undefined);
+    }
+
+    public create(data: CreatePostDto): Promise<string> {
+        return axios
+            .post<PostShortDto>(`${this.SERVICE_BASE_URL}/create`, data, {
+                headers: getHeaders(),
+            })
+            .then(({ data: { _id } }) => _id);
     }
 }
