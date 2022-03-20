@@ -4,7 +4,7 @@ import { FooterProps } from './Footer.props';
 import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
 import { CreatePost } from '../../pages/create-post/CreatePost';
-import { AuthContext } from '../../contexts/AuthContext';
+import { AuthContext } from '../../_contexts/AuthContext';
 
 export interface FileUpload {
     path: string;

@@ -1,5 +1,5 @@
 import { AxiosRequestHeaders } from 'axios';
-import { JwtDto } from '../services/dto/jwt.dto';
+import { JwtDto } from '../_services/dto/jwt.dto';
 import { JWT_KEY } from './constants';
 
 export const getTokens = (): JwtDto | null => {

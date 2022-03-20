@@ -1,12 +1,12 @@
 import { ReactElement, useContext, useEffect, useMemo, useState } from 'react';
-import { HeaderContext } from '../../contexts/HeaderContext';
+import { HeaderContext } from '../../_contexts/HeaderContext';
 import styles from './Profile.module.scss';
 import cn from 'classnames';
 import { Gallery } from '../../components/gallery/Gallery';
 import { Link, useParams } from 'react-router-dom';
-import { AuthContext } from '../../contexts/AuthContext';
-import { AuthorService } from '../../services/author.service';
-import { AuthorDto } from '../../services/dto/author.dto';
+import { AuthContext } from '../../_contexts/AuthContext';
+import { AuthorService } from '../../_services/author.service';
+import { AuthorDto } from '../../_services/dto/author.dto';
 
 export const Profile = (): ReactElement => {
     const authService = useMemo(() => new AuthorService(), []);

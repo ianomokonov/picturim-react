@@ -1,8 +1,8 @@
 import { ReactElement, useContext, useEffect, useMemo, useState } from 'react';
 import { Post } from '../../components/post/Post';
-import { HeaderContext } from '../../contexts/HeaderContext';
-import { PostDto } from '../../services/dto/post.dto';
-import { PostService } from '../../services/post.service';
+import { HeaderContext } from '../../_contexts/HeaderContext';
+import { PostDto } from '../../_services/dto/post.dto';
+import { PostService } from '../../_services/post.service';
 import styles from './Main.module.scss';
 
 export const Main = (): ReactElement => {

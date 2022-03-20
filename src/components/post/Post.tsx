@@ -54,6 +54,9 @@ export const Post = ({ post, className, onToogleLike, ...props }: PostProps): Re
                                 className={cn({ far: !isLiked, fas: isLiked }, 'fa-heart')}
                                 onClick={() => setNewLike()}
                             ></i>
+                            <Link to={`/post/${post._id}/comments`}>
+                                <i className="far fa-comment"></i>
+                            </Link>
                             {/* <i className="fas fa-share"></i> */}
                         </div>
                         <div className={styles.photo__likes}>Нравится: {likes}</div>
@@ -72,7 +75,7 @@ export const Post = ({ post, className, onToogleLike, ...props }: PostProps): Re
                                 </small>
                             )}
                             <Link
-                                to="/comments"
+                                to={`/post/${post._id}/comments`}
                                 className={cn(styles['photo__show-all'], {
                                     'd-none': !post.commentsCount,
                                 })}

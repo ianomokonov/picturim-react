@@ -1,6 +1,6 @@
 import { ReactElement, useContext, useEffect, useState } from 'react';
 import { Input } from '../../components/input/Input';
-import { HeaderContext } from '../../contexts/HeaderContext';
+import { HeaderContext } from '../../_contexts/HeaderContext';
 import { FileUpload } from '../../layout/Footer/Footer';
 import styles from './EditProfile.module.scss';
 

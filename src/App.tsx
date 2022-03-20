@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { Route, Routes } from 'react-router';
 import { Post } from './components/post/Post';
-import { AuthContext, AuthContextProvider } from './contexts/AuthContext';
-import { HeaderContextProvider } from './contexts/HeaderContext';
+import { AuthContext, AuthContextProvider } from './_contexts/AuthContext';
+import { HeaderContextProvider } from './_contexts/HeaderContext';
 import { RequireAuth } from './hocs/RequireAuth';
 import { Layout } from './layout/withLayout';
 import { Actions } from './pages/actions/Actions';
@@ -36,7 +36,7 @@ function App() {
                             <Route path="profile/:login" element={<Profile />} />
                             <Route path="profile" element={<Profile />} />
                             <Route path="profile/:login/edit" element={<EditProfile />} />
-                            <Route path="comments" element={<Comments />} />
+                            <Route path="post/:id/comments" element={<Comments />} />
                             <Route path="post/:id" element={<PostPage />} />
                         </Route>
                         <Route path="login" element={<Login />} />

@@ -8,10 +8,10 @@ import {
     useState,
 } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { AuthorService } from '../services/author.service';
-import { AuthorDto, AuthorShortDto } from '../services/dto/author.dto';
-import { LoginDto } from '../services/dto/login.dto';
-import { SignInDto } from '../services/dto/sign-in.dto';
+import { AuthorService } from '../_services/author.service';
+import { AuthorDto, AuthorShortDto } from '../_services/dto/author.dto';
+import { LoginDto } from '../_services/dto/login.dto';
+import { SignInDto } from '../_services/dto/sign-in.dto';
 import { getTokens, saveTokens } from '../utils/jwt';
 
 export interface IAuthContext {

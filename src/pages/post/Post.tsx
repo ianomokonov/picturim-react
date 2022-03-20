@@ -1,9 +1,9 @@
 import { ReactElement, useContext, useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Post } from '../../components/post/Post';
-import { HeaderContext } from '../../contexts/HeaderContext';
-import { PostDto } from '../../services/dto/post.dto';
-import { PostService } from '../../services/post.service';
+import { HeaderContext } from '../../_contexts/HeaderContext';
+import { PostDto } from '../../_services/dto/post.dto';
+import { PostService } from '../../_services/post.service';
 import styles from './Post.module.scss';
 
 export const PostPage = (): ReactElement => {

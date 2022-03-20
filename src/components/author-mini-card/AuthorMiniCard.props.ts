@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
-import { AuthorShortDto } from '../../services/dto/author.dto';
+import { AuthorShortDto } from '../../_services/dto/author.dto';
 
 export interface AuthorMiniCardProps
-    extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+    extends DetailedHTMLProps<HTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> {
     author: AuthorShortDto;
 }

@@ -1,6 +1,6 @@
 import { PropsWithChildren, ReactElement, useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { AuthContext } from '../contexts/AuthContext';
+import { AuthContext } from '../_contexts/AuthContext';
 
 export const RequireAuth = ({ children }: PropsWithChildren<{}>): ReactElement => {
     const { author } = useContext(AuthContext);

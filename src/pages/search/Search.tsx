@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { AuthorMiniCard } from '../../components/author-mini-card/AuthorMiniCard';
 import { Gallery } from '../../components/gallery/Gallery';
 import { Input } from '../../components/input/Input';
-import { HeaderContext } from '../../contexts/HeaderContext';
-import { AuthorService } from '../../services/author.service';
-import { AuthorShortDto } from '../../services/dto/author.dto';
+import { HeaderContext } from '../../_contexts/HeaderContext';
+import { AuthorService } from '../../_services/author.service';
+import { AuthorShortDto } from '../../_services/dto/author.dto';
 import styles from './Search.module.scss';
 
 export const Search = (): ReactElement => {

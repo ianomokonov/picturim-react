@@ -2,7 +2,7 @@ import React, { ReactElement, useContext } from 'react';
 import styles from './Header.module.scss';
 import cn from 'classnames';
 import { HeaderProps } from './Header.props';
-import { HeaderContext } from '../../contexts/HeaderContext';
+import { HeaderContext } from '../../_contexts/HeaderContext';
 
 export const Header = ({ className }: HeaderProps): ReactElement => {
     const { title, actions } = useContext(HeaderContext);

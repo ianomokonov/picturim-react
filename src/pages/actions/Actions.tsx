@@ -1,5 +1,5 @@
 import { ReactElement, useContext, useEffect } from 'react';
-import { HeaderContext } from '../../contexts/HeaderContext';
+import { HeaderContext } from '../../_contexts/HeaderContext';
 import styles from './Actions.module.scss';
 
 export const Actions = (): ReactElement => {

@@ -4,7 +4,7 @@ import cn from 'classnames';
 import styles from './Layout.module.scss';
 import { Outlet } from 'react-router';
 import { useContext } from 'react';
-import { HeaderContext } from '../contexts/HeaderContext';
+import { HeaderContext } from '../_contexts/HeaderContext';
 
 // export const withLayout = <T extends Record<string, unknown>>(Component: FunctionComponent<T>) => {
 //     return function withLayoutComponent(props: T) {

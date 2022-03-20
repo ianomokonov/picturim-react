@@ -1,11 +1,11 @@
 import { ReactElement, useContext, useEffect, useMemo, useState } from 'react';
 import { Input } from '../../components/input/Input';
-import { HeaderContext } from '../../contexts/HeaderContext';
+import { HeaderContext } from '../../_contexts/HeaderContext';
 import styles from './Login.module.scss';
 import cn from 'classnames';
-import { AuthorService } from '../../services/author.service';
+import { AuthorService } from '../../_services/author.service';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../contexts/AuthContext';
+import { AuthContext } from '../../_contexts/AuthContext';
 
 export const Login = (): ReactElement => {
     const [formData, setFormData] = useState<any>({});
